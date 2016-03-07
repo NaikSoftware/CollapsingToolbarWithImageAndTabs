@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TestHideTabs.iml" filepath="$PROJECT_DIR$/TestHideTabs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adapterdelegate/adapterdelegate.iml" filepath="$PROJECT_DIR$/adapterdelegate/adapterdelegate.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
