@@ -30,7 +30,7 @@ public class SimpleViewHolder extends RecyclerView.ViewHolder {
         return this;
     }
 
-    public <T extends View> T getView(@IdRes int viewId, Class<T> type) {
+    public <T extends View> T getView(@IdRes int viewId) {
         T view = (T) mViewSparseArray.get(viewId);
         if (view == null) {
             throw new IllegalArgumentException("View with id=" + viewId

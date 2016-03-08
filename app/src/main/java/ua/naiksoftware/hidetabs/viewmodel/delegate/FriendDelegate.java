@@ -55,8 +55,8 @@ public class FriendDelegate implements AdapterDelegate<List<? extends Model>> {
 
         String firstLetter = friend.name.substring(0, 1);
 
-        viewHolder.getView(R.id.friend_name, TextView.class).setText(friend.name);
-        viewHolder.getView(R.id.friend_avatar, ImageView.class).setImageDrawable(
+        viewHolder.<TextView>getView(R.id.friend_name).setText(friend.name);
+        viewHolder.<ImageView>getView(R.id.friend_avatar).setImageDrawable(
                 TextDrawable.builder().buildRound(firstLetter,
                         ColorGenerator.MATERIAL.getColor(firstLetter)).getCurrent()
         );
