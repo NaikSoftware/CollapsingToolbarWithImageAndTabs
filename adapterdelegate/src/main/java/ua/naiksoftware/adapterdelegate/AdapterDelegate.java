@@ -4,12 +4,14 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 /**
  * @param T data items represented by delegates
  *
  * Created by naik on 07.03.16.
  */
-public interface AdapterDelegate<T extends Iterable> {
+public interface AdapterDelegate<T> {
 
     int getItemViewType();
 

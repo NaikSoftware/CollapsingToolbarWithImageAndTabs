@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 /**
  * Created by naik on 07.03.16.
  */
-public class DelegateManager<T extends Iterable> {
+public class DelegateManager<T> {
 
     private final SparseArray<AdapterDelegate<T>> mDelegateSparseArray = new SparseArray<>();
 
@@ -34,17 +34,7 @@ public class DelegateManager<T extends Iterable> {
     }
 
     public int getItemViewType(@NonNull T items, int position) {
-
-        int delegatesCount = mDelegateSparseArray.size();
-        for (int i = 0; i < delegatesCount; i++) {
-            AdapterDelegate<T> delegate = mDelegateSparseArray.valueAt(i);
-            if (delegate.isForViewType(items, position)) {
-                return delegate.getItemViewType();
-            }
-        }
-
-        throw new IllegalArgumentException(
-                "No AdapterDelegate added that matches position=" + position + " in data source");
+        return findDelegateForPosition(items, position).getItemViewType();
     }
 
     @NonNull
@@ -62,6 +52,23 @@ public class DelegateManager<T extends Iterable> {
         }
 
         delegate.onBindViewHolder(items, position, viewHolder);
+    }
+
+    public long getItemId(@NonNull T items, int position) {
+        return findDelegateForPosition(items, position).getItemId(items, position);
+    }
+
+    @NonNull
+    private AdapterDelegate<T> findDelegateForPosition(@NonNull T items, int position) {
+        int delegatesCount = mDelegateSparseArray.size();
+        for (int i = 0; i < delegatesCount; i++) {
+            AdapterDelegate<T> delegate = mDelegateSparseArray.valueAt(i);
+            if (delegate.isForViewType(items, position)) {
+                return delegate;
+            }
+        }
+        throw new IllegalArgumentException(
+                "No AdapterDelegate added that matches position=" + position + " in data source");
     }
 
 }
