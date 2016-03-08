@@ -52,8 +52,7 @@
                     android:background="@android:color/transparent"
                     app:tabGravity="fill"
                     app:tabIndicatorColor="@android:color/white"
-                    app:tabMode="scrollable"
-                    app:tabSelectedTextColor="@android:color/white" />
+                    app:tabMode="scrollable" />
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>

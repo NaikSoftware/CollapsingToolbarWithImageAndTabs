@@ -10,12 +10,6 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-
-        // Stops the Gradle’s automatic rasterization of vectors
-        vectorDrawables.useSupportLibrary = true
-    }
-    aaptOptions {
-        additionalParameters "--no-version-vectors"
     }
     buildTypes {
         release {

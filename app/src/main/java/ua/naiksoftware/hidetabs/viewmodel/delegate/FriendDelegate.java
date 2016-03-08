@@ -53,10 +53,12 @@ public class FriendDelegate implements AdapterDelegate<List<? extends Model>> {
         SimpleViewHolder viewHolder = (SimpleViewHolder) holder;
         Friend friend = (Friend) items.get(position);
 
+        String firstLetter = friend.name.substring(0, 1);
+
         viewHolder.getView(R.id.friend_name, TextView.class).setText(friend.name);
         viewHolder.getView(R.id.friend_avatar, ImageView.class).setImageDrawable(
-                TextDrawable.builder().buildRound(friend.name.substring(0, 1),
-                        ColorGenerator.MATERIAL.getColor(friend.name)).getCurrent()
+                TextDrawable.builder().buildRound(firstLetter,
+                        ColorGenerator.MATERIAL.getColor(firstLetter)).getCurrent()
         );
     }
 
