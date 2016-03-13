@@ -20,11 +20,9 @@ public class BindableViewHolder <VB extends ViewDataBinding> extends RecyclerVie
         mBinding = binding;
     }
 
-    public static <VB extends ViewDataBinding> BindableViewHolder<VB> newInstance(
-            @LayoutRes int layoutId, LayoutInflater inflater,
-            @Nullable ViewGroup parent, boolean attachToParent) {
+    public static <VB extends ViewDataBinding> BindableViewHolder<VB> newInstance(@LayoutRes int layoutId, ViewGroup parent) {
 
-        VB vb = DataBindingUtil.inflate(inflater, layoutId, parent, attachToParent);
+        VB vb = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), layoutId, parent, false);
         return new BindableViewHolder<>(vb);
     }
 

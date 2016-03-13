@@ -15,6 +15,7 @@ import ua.naiksoftware.adapterdelegate.AdapterDelegate;
 import ua.naiksoftware.adapterdelegate.DelegateRecyclerAdapter;
 import ua.naiksoftware.hidetabs.model.Model;
 import ua.naiksoftware.hidetabs.model.utils.Utils;
+import ua.naiksoftware.hidetabs.viewmodel.delegate.BindingFriendDelegate;
 import ua.naiksoftware.hidetabs.viewmodel.delegate.FriendDelegate;
 
 /**
@@ -56,7 +57,7 @@ public class PlaceholderFragment extends Fragment {
 
     private RecyclerView.Adapter getListAdapter(List<? extends Model> models) {
         return new DelegateRecyclerAdapter<>(new ArrayList<AdapterDelegate<List<? extends Model>>>() {{
-            add(new FriendDelegate(1));
+            add(new BindingFriendDelegate(1));
         }}, models, true);
     }
 }
